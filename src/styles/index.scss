@@ -1,14 +1,24 @@
 @import "~bootstrap/scss/bootstrap.scss";
-
-.square{
-    height: 5rem;
-    width: 5rem;
-    background-color:white;
-    border: black 1px solid; 
+.body{
+    background-color: green;
 }
-
-.fila {
-    height: 5rem;
+.square{
+    height: 10rem;
+    width: 10rem;
+    background-color:white;
+    border: grey 0.3rem solid; 
+    font-size: 3rem;
+    margin: 0.1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.rowBoard {
+    display: flex;
+    justify-content: center;
+}
+
+.board {
+    margin-top: 7rem;
 }

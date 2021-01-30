@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 
-export const Modaltemplate = () => {
+export const Modaltemplate = props => {
 	const [show, setShow] = useState(false);
 	const [currentFirstPlayValue, setValueFirst] = useState("");
 	const [currentSecondPlayValue, setValueSecond] = useState("");
@@ -24,7 +24,9 @@ export const Modaltemplate = () => {
 					<div className="col-5 d-flex flex-column">
 						<input
 							type="text"
-							onChange={e => setValueFirst(e.target.value)}
+							onChange={e => {
+								setValueFirst(e.target.value);
+							}}
 							value={currentFirstPlayValue}
 							placeholder="Please type your name"
 						/>
@@ -52,5 +54,5 @@ export const Modaltemplate = () => {
 Modaltemplate.propTypes = {
 	firstPlayer: PropTypes.string,
 	secondPlayer: PropTypes.string,
-	onMyClick: PropTypes.any
+	onMyChange: PropTypes.function
 };
