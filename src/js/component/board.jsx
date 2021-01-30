@@ -5,6 +5,7 @@ import { propTypes } from "react-bootstrap/esm/Image";
 
 export const Board = () => {
 	const [player, setPlayer] = useState(true);
+	const [win, setWin] = useState(false);
 	const [board, setBoard] = useState([
 		null,
 		null,
@@ -19,7 +20,7 @@ export const Board = () => {
 
 	const handleClick = e => {
 		if (board[e.target.id] === null) {
-			if (player == true) {
+			if (player) {
 				board.splice(e.target.id, 1, "X");
 			} else {
 				board.splice(e.target.id, 1, "O");
@@ -29,6 +30,7 @@ export const Board = () => {
 	};
 
 	const reset = e => {
+		setPlayer(true);
 		setBoard([null, null, null, null, null, null, null, null, null]);
 	};
 
@@ -57,11 +59,9 @@ export const Board = () => {
 	};
 
 	const winner = calculateWinner(board);
+
 	return (
 		<>
-			<div class="alert alert-success" role="alert">
-				WINNER IS {winner}
-			</div>
 			<div className="board">
 				<div className="row rowBoard">
 					<div
@@ -123,8 +123,15 @@ export const Board = () => {
 						{board[8]}
 					</div>
 				</div>
-				<button onClick={e => reset(e)}>RESET</button>
+				<div className="row d-flex justify-content-center">
+					<button onClick={e => reset(e)}>RESET</button>
+					<span>The Winer is {winner}</span>
+				</div>
 			</div>
 		</>
 	);
+};
+Board.propTypes = {
+	firstPlayer: PropTypes.string,
+	secondPlayer: PropTypes.string
 };
