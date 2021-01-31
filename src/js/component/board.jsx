@@ -130,8 +130,8 @@ export const Board = () => {
 						RESET
 					</button>
 				</div>
-				<div className="row d-flex justify-content-center mt-1">
-					<span>The Winer is {winner}</span>
+				<div className="row d-flex justify-content-center align-items-center mt-1">
+					<span>The Winer is</span> <p>{winner}</p>
 				</div>
 			</div>
 		</>

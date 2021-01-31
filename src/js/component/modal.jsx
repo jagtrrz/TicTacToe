@@ -15,15 +15,17 @@ export const Modaltemplate = props => {
 	return (
 		<>
 			<div className="row d.flex">
-				<h3 className="col-5 d-flex justify-content-end">
+				<span className="col-5 d-flex justify-content-end">
 					X´s player {firstPlayer}
-				</h3>
-				<h3 className="offset-2 col-5 d-flex justify-content-start">
+				</span>
+				<span className="offset-2 col-5 d-flex justify-content-start">
 					{secondPlayer} O´s player
-				</h3>
+				</span>
 			</div>
 			<div className="row d-flex justify-content-center">
-				<button className="btn btn-secondary" onClick={handleShow}>
+				<button
+					className="btn btn-secondary playButton"
+					onClick={handleShow}>
 					LET´S PLAY
 				</button>
 				<Modal show={show} onHide={handleClose}>
