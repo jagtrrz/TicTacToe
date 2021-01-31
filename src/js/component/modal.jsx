@@ -15,22 +15,24 @@ export const Modaltemplate = props => {
 	return (
 		<>
 			<div className="row d.flex">
-				<h5 className="col-6 d-flex justify-content-center">
-					First Player {firstPlayer}
-				</h5>
-				<h5 className="col-6 d-flex justify-content-center">
-					{secondPlayer} Second Player
-				</h5>
+				<h3 className="col-5 d-flex justify-content-end">
+					X´s player {firstPlayer}
+				</h3>
+				<h3 className="offset-2 col-5 d-flex justify-content-start">
+					{secondPlayer} O´s player
+				</h3>
 			</div>
 			<div className="row d-flex justify-content-center">
-				<Button variant="primary" onClick={handleShow}>
+				<button className="btn btn-secondary" onClick={handleShow}>
 					LET´S PLAY
-				</Button>
+				</button>
 				<Modal show={show} onHide={handleClose}>
-					<Modal.Header className="d-flex justify-content-center">
-						<Modal.Title>TicTacToc</Modal.Title>
+					<Modal.Header className="d-flex justify-content-center modalHeader">
+						<Modal.Title className="modalTitle">
+							TicTacToc
+						</Modal.Title>
 					</Modal.Header>
-					<div className="row d-flex justify-content-center">
+					<div className="row d-flex justify-content-center modalContent">
 						<div className="col-5 d-flex flex-column">
 							<input
 								type="text"
@@ -40,7 +42,7 @@ export const Modaltemplate = props => {
 								value={firstPlayer}
 								placeholder="Please type your name"
 							/>
-							<i className="fas fa-times fa-4x d-flex justify-content-center" />
+							<i className="fas fa-times fa-3x d-flex justify-content-center" />
 						</div>
 						<div className="col-5 d-flex flex-column">
 							<input
@@ -49,13 +51,15 @@ export const Modaltemplate = props => {
 								value={secondPlayer}
 								placeholder="Please type your name"
 							/>
-							<i className="fas fa-circle fa-4x d-flex justify-content-center" />
+							<i className="fas fa-circle fa-3x d-flex justify-content-center" />
 						</div>
 					</div>
-					<Modal.Footer className="d-flex justify-content-center">
-						<Button variant="success" onClick={handleClose}>
+					<Modal.Footer className="d-flex justify-content-center modalFooter">
+						<button
+							className="btn btn-outline-secondary"
+							onClick={handleClose}>
 							GO
-						</Button>
+						</button>
 					</Modal.Footer>
 				</Modal>
 			</div>

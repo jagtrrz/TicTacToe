@@ -123,8 +123,14 @@ export const Board = () => {
 						{board[8]}
 					</div>
 				</div>
-				<div className="row d-flex justify-content-center">
-					<button onClick={e => reset(e)}>RESET</button>
+				<div className="row d-flex justify-content-center mt-2">
+					<button
+						className="btn btn-secondary"
+						onClick={e => reset(e)}>
+						RESET
+					</button>
+				</div>
+				<div className="row d-flex justify-content-center mt-1">
 					<span>The Winer is {winner}</span>
 				</div>
 			</div>
