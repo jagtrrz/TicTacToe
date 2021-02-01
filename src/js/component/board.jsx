@@ -85,7 +85,7 @@ export const Board = props => {
 
 	return (
 		<>
-			<div className="row d-none d-flex justify-content-center align-items-center mt-2 mb-0">
+			<div className="row d-flex justify-content-center align-items-center mt-2 mb-0">
 				<span className="d-none alert alert-success" id="winnerDiv">
 					The Winer is
 					{" " + firstPlayer}
