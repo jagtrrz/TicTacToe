@@ -8,19 +8,21 @@ export const Modaltemplate = props => {
 	const [show, setShow] = useState(false);
 	const [firstPlayer, setFirstPlayer] = useState("");
 	const [secondPlayer, setSecondPlayer] = useState("");
+	const firstPlatyerTest = document.querySelector("#fisrtPlayer");
+	console.log(firstPlatyerTest);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
 	return (
 		<>
-			<div className="row d.flex">
-				<span className="col-5 d-flex justify-content-end">
-					X´s player {firstPlayer}
-				</span>
-				<span className="offset-2 col-5 d-flex justify-content-start">
-					{secondPlayer} O´s player
-				</span>
+			<div className="row d-flex">
+				<h3 className="offset-3 col-2 d-flex justify-content-end rounded">
+					FirstPlayer: {" " + firstPlayer + " "}
+				</h3>
+				<h3 className="offset-2 col-2 d-flex justify-content-start rounded">
+					SecondPlayer: {secondPlayer + " "}
+				</h3>
 			</div>
 			<div className="row d-flex justify-content-center">
 				<button
@@ -37,6 +39,7 @@ export const Modaltemplate = props => {
 					<div className="row d-flex justify-content-center modalContent">
 						<div className="col-5 d-flex flex-column">
 							<input
+								id="fisrtPlayer"
 								type="text"
 								onChange={e => {
 									setFirstPlayer(e.target.value);

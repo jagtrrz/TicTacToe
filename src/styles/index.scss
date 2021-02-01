@@ -4,6 +4,7 @@ body{
     background-image: url(https://images.unsplash.com/photo-1502842294453-95e49a5ce544?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
     background-size: cover;
     background-position: center;
+    background-repeat: repeat;
     margin-bottom: -5rem;
 }
 .square{
@@ -19,48 +20,50 @@ body{
     align-items: center;
     border-radius: 5%;
 }
-.board{
-    margin-top: 1rem;
-}
+
 .rowBoard {
     display: flex;
     justify-content: center;
 }
 span {
     font-size: 2rem;
-    color: whitesmoke;
+    color: #505050;
+    font-size: bold;
 }
-p {
-    font-size: 3rem;
-    color: red;
-    font-weight: bolder;
-    margin-left: 1rem;
+
+#winnerDiv {
+    height: 3rem;
 }
+
 .modal{
     display: flex;
     justify-content: space-around;
 }
 .title{
     margin-top: 5rem;
-    color: white;
+    
 }
 
 h1{
     font-size: 3rem;
     font-weight: bold;
+    color: white;
 }
 h3{
-    font-size: 2rem;
-    font-weight: bolder;
-    color: #643737;
+    font-size: 1.5rem;
+    color: #B81919;
+    font-weight: bold;
+    background-color: whitesmoke;
+    opacity: 0.7;
 }
 
 .fa-times{
     color: #B81919
 }
 .fa-circle{
-color: #B81919
+    color: #B81919
 }
+
 .modalTitle{
     font-size: 2rem;
     color: grey;
@@ -83,4 +86,7 @@ input{
 }
 .playButton{
     margin-top: -2.8rem;
+}
+.resetButton{
+    color: whitesmoke;
 }

@@ -6,7 +6,6 @@ import { Modaltemplate } from "./modal.jsx";
 import { Board } from "./board.jsx";
 
 import "/workspace/TicTacToe/src/styles/index.scss";
-//create your first component
 
 export const Home = () => {
 	return (
@@ -14,8 +13,8 @@ export const Home = () => {
 			<div className="row d-flex justify-content-center title">
 				<h1>TicTacToe React JSX</h1>
 			</div>
-			<Board />
 			<Modaltemplate />
+			<Board />
 		</Fragment>
 	);
 };

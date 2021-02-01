@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { propTypes } from "react-bootstrap/esm/Image";
+import { Modaltemplate } from "./modal.jsx";
 
-export const Board = () => {
+export const Board = props => {
 	const [player, setPlayer] = useState(true);
-	const [win, setWin] = useState(false);
+	const winnerDiv = document.querySelector("#winnerDiv");
+	const [firstPlayer, setFirstPlayer] = useState("");
+	const [secondPlayer, setSecondPlayer] = useState("");
 	const [board, setBoard] = useState([
 		null,
 		null,
@@ -32,6 +35,10 @@ export const Board = () => {
 	const reset = e => {
 		setPlayer(true);
 		setBoard([null, null, null, null, null, null, null, null, null]);
+		winnerDiv.classList.add("d-none");
+		winnerDiv.classList.remove("d-flex", "align-items-center");
+		setFirstPlayer("");
+		setSecondPlayer("");
 	};
 
 	const calculateWinner = squares => {
@@ -58,10 +65,33 @@ export const Board = () => {
 		return null;
 	};
 
-	const winner = calculateWinner(board);
+	let winner = calculateWinner(board);
+
+	useEffect(
+		() => {
+			if (winner == "X") {
+				setFirstPlayer("FirstPlayer");
+				winnerDiv.classList.remove("d-none");
+				winnerDiv.classList.add("d-flex", "align-items-center");
+			}
+			if (winner == "O") {
+				setSecondPlayer("SecondPlayer");
+				winnerDiv.classList.remove("d-none");
+				winnerDiv.classList.add("d-flex", "align-items-center");
+			}
+		},
+		[winner]
+	);
 
 	return (
 		<>
+			<div className="row d-none d-flex justify-content-center align-items-center mt-2 mb-0">
+				<span className="d-none alert alert-success" id="winnerDiv">
+					The Winer is
+					{" " + firstPlayer}
+					{" " + secondPlayer}
+				</span>
+			</div>
 			<div className="board">
 				<div className="row rowBoard">
 					<div
@@ -125,19 +155,12 @@ export const Board = () => {
 				</div>
 				<div className="row d-flex justify-content-center mt-2">
 					<button
-						className="btn btn-secondary"
+						className="btn btn-dark mb-3 resetButton"
 						onClick={e => reset(e)}>
 						RESET
 					</button>
 				</div>
-				<div className="row d-flex justify-content-center align-items-center mt-1">
-					<span>The Winer is</span> <p>{winner}</p>
-				</div>
 			</div>
 		</>
 	);
-};
-Board.propTypes = {
-	firstPlayer: PropTypes.string,
-	secondPlayer: PropTypes.string
 };
